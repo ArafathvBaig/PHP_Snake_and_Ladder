@@ -13,6 +13,7 @@ class Snake_and_Ladder
     public $SNAKE = 2;
 
     public $position = 0;
+    public $diceRollCount = 0;
 
     function welcomeMessage()
     {
@@ -28,6 +29,7 @@ class Snake_and_Ladder
     {
         while ($this->position < 100) {
             $diceRoll = $this->rollDice();
+            $this->diceRollCount++;
             $optionCheck = rand(0, 2);
             echo "Option:: " . $optionCheck . "\n";
             switch ($optionCheck) {
@@ -50,6 +52,7 @@ class Snake_and_Ladder
             }
             echo "Position:: " . $this->position . "\n";
         }
+        echo "Total Dice Roll Count:: " . $this->diceRollCount;
     }
 
     /**
