@@ -21,39 +21,43 @@ class Snake_and_Ladder
 
     /**
      * Function to get the option for next step
-     * Passing diceRoll as a parameter 
+     * Non-parameterized function 
      * Using Switch case to check option and print position
      */
-    function option($diceRoll)
+    function option()
     {
-        $optionCheck = rand(0, 2);
-        echo "Option:: " . $optionCheck . "\n";
-        switch ($optionCheck) {
-            case $this->LADDER:
-                $this->position += $diceRoll;
-                break;
-            case $this->SNAKE:
-                $this->position -= $diceRoll;
-                break;
-            default:
-                $this->position = $this->position;
-                break;
+        while($this->position < 100)
+        {
+            $diceRoll = $this->rollDice();
+            $optionCheck = rand(0, 2);
+            echo "Option:: " . $optionCheck . "\n";
+            switch ($optionCheck) {
+                case $this->LADDER:
+                    $this->position += $diceRoll;
+                    break;
+                case $this->SNAKE:
+                    $this->position -= $diceRoll;
+                    break;
+                default:
+                    $this->position = $this->position;
+                    break;
+            }
+            echo "Position:: " . $this->position . "\n";
         }
-        echo "Position:: " . $this->position . "\n";
     }
 
     /**
      * Function to get the user to roll the dice
      * Printing the Number on the dice
-     * calling option function, passing diceRoll as parameter
+     * Returns the dice roll
      */
     function rollDice()
     {
         $diceRoll = rand(1, 6);
         echo "Number on Dice:: " . $diceRoll . "\n";
-        $this->option($diceRoll);
+        return $diceRoll;
     }
 }
 
 $snakeAndLadder = new Snake_And_Ladder();
-$snakeAndLadder->rollDice();
+$snakeAndLadder->option();
