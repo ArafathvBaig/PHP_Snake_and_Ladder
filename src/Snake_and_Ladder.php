@@ -26,17 +26,23 @@ class Snake_and_Ladder
      */
     function option()
     {
-        while($this->position < 100)
-        {
+        while ($this->position < 100) {
             $diceRoll = $this->rollDice();
             $optionCheck = rand(0, 2);
             echo "Option:: " . $optionCheck . "\n";
             switch ($optionCheck) {
                 case $this->LADDER:
-                    $this->position += $diceRoll;
+                    if ($this->position + $diceRoll > 100) {
+                        $this->position = $this->position;
+                    } else {
+                        $this->position += $diceRoll;
+                    }
                     break;
                 case $this->SNAKE:
                     $this->position -= $diceRoll;
+                    if ($this->position <= 0) {
+                        $this->position = 0;
+                    }
                     break;
                 default:
                     $this->position = $this->position;
