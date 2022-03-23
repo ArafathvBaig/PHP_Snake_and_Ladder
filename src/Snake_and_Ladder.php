@@ -15,3 +15,5 @@ class Snake_and_Ladder
 
 $snakeAndLadder = new Snake_and_Ladder();
 $snakeAndLadder->welcomeMessage();
+$startPosition = 0;
+echo "Start Position:: " . $startPosition;
