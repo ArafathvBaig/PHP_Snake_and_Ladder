@@ -17,3 +17,5 @@ $snakeAndLadder = new Snake_and_Ladder();
 $snakeAndLadder->welcomeMessage();
 $startPosition = 0;
 echo "Start Position:: " . $startPosition;
+$diceRoll = rand(1, 6);
+echo "\nPosition of Player:: " . $diceRoll;
